@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarLogic : MonoBehaviour {
-
-    Transform myTransform;
+    [HideInInspector]
+    public Transform myTransform;
     Rigidbody myRigidbody;
     private void Awake()
     {
@@ -13,7 +13,23 @@ public class CarLogic : MonoBehaviour {
     }
     void FixedUpdate()
     {
-        myRigidbody.AddForce(myTransform.forward*10);
-        
+        //Debug.Log(myRigidbody.velocity.magnitude);
+        //50 is max speed
+        if(myRigidbody.velocity.magnitude < 50f)
+            myRigidbody.AddForce(myTransform.forward* 200f * Time.fixedDeltaTime);
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            myRigidbody.AddTorque(new Vector3(0, -Time.fixedDeltaTime * 40f, 0));
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            myRigidbody.AddTorque(new Vector3(0, Time.fixedDeltaTime * 40f, 0));
+        } else
+        {
+            myRigidbody.angularVelocity = Vector3.zero;
+
+        }
+
     }
 }
