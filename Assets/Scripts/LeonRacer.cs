@@ -18,7 +18,7 @@ public class LeonRacer : MonoBehaviour {
     {
         if(mainPlayer.myTransform.position.z > trackCounter * 96f){
             trackCounter++;
-            GameObject newTrack = SmartPool.Spawn("Track"+Random.Range(0,3).ToString());
+            GameObject newTrack = SmartPool.Spawn("Track"+Random.Range(0,4).ToString());
             newTrack.transform.position = new Vector3(0, 0, 96f * trackCounter);
         }
     }

@@ -32,4 +32,8 @@ public class CarLogic : MonoBehaviour {
         }
 
     }
+    public void ChangeColor()
+    {
+
+    }
 }
