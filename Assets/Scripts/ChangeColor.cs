@@ -8,8 +8,7 @@ public class ChangeColor : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            //TODO change car color
-            Debug.Log("CHANGE COLOR TRIGGER");
+            other.GetComponent<CarLogic>().ChangeColor();
         }
     }
 }
